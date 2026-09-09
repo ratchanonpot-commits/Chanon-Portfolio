@@ -1,3 +1,524 @@
-<h1>
-<p> สวัสดีครับ ผม นาย รัชชานนท์ โพธิผล </p>
-</h1>
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Portfolio | รัชชานนท์ โพธิผล</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background: #0f172a;
+      color: white;
+      line-height: 1.7;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 18px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #60a5fa;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    nav a {
+      color: #e2e8f0;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #60a5fa;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 100px 20px 50px;
+      background:
+        radial-gradient(circle at top left, #1d4ed8 0%, transparent 35%),
+        radial-gradient(circle at bottom right, #7c3aed 0%, transparent 35%),
+        #0f172a;
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .profile-circle {
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 25px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 55px;
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      box-shadow: 0 0 40px rgba(59,130,246,0.35);
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 7vw, 68px);
+      margin-bottom: 10px;
+    }
+
+    .hero h1 span {
+      color: #60a5fa;
+    }
+
+    .hero h2 {
+      font-size: 22px;
+      font-weight: normal;
+      color: #cbd5e1;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      color: #94a3b8;
+      max-width: 650px;
+      margin: auto;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 13px 28px;
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(59,130,246,0.3);
+    }
+
+    /* General Section */
+    section {
+      padding: 90px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title h2 {
+      font-size: 38px;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #94a3b8;
+    }
+
+    /* About */
+    .about {
+      background: #111827;
+    }
+
+    .about-container {
+      max-width: 1000px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    .card {
+      background: rgba(30, 41, 59, 0.8);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 30px;
+      border-radius: 20px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #3b82f6;
+    }
+
+    .card h3 {
+      color: #60a5fa;
+      margin-bottom: 15px;
+      font-size: 22px;
+    }
+
+    .card p {
+      color: #cbd5e1;
+    }
+
+    /* Education */
+    .education {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .education-card {
+      padding: 35px;
+      border-radius: 20px;
+      background: linear-gradient(
+        135deg,
+        rgba(37,99,235,0.18),
+        rgba(124,58,237,0.18)
+      );
+      border: 1px solid rgba(96,165,250,0.25);
+      text-align: center;
+    }
+
+    .education-card .icon {
+      font-size: 50px;
+      margin-bottom: 15px;
+    }
+
+    .education-card h3 {
+      font-size: 25px;
+      margin-bottom: 10px;
+    }
+
+    .education-card p {
+      color: #cbd5e1;
+    }
+
+    /* Skills */
+    .skills {
+      background: #111827;
+    }
+
+    .skills-grid {
+      max-width: 1000px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .skill-card {
+      text-align: center;
+      padding: 30px 20px;
+      border-radius: 20px;
+      background: #1e293b;
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: 0.3s;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-8px);
+      background: linear-gradient(135deg, #1e40af, #5b21b6);
+    }
+
+    .skill-icon {
+      font-size: 50px;
+      margin-bottom: 15px;
+    }
+
+    .skill-card h3 {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .skill-card p {
+      color: #94a3b8;
+      font-size: 14px;
+    }
+
+    /* Contact */
+    .contact {
+      text-align: center;
+      background:
+        radial-gradient(circle at center, #1e3a8a, transparent 45%),
+        #0f172a;
+    }
+
+    .contact-box {
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .contact-box p {
+      color: #cbd5e1;
+      margin-bottom: 20px;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #020617;
+      color: #64748b;
+      font-size: 14px;
+    }
+
+    /* Responsive */
+    @media (max-width: 800px) {
+      nav {
+        padding: 15px 5%;
+      }
+
+      nav ul {
+        gap: 12px;
+        font-size: 14px;
+      }
+
+      .about-container {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 500px) {
+      nav {
+        position: relative;
+      }
+
+      nav ul {
+        display: none;
+      }
+
+      section {
+        padding: 70px 5%;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">Ratchanon</div>
+
+    <ul>
+      <li><a href="#home">หน้าหลัก</a></li>
+      <li><a href="#about">เกี่ยวกับฉัน</a></li>
+      <li><a href="#education">การศึกษา</a></li>
+      <li><a href="#skills">ความสามารถ</a></li>
+      <li><a href="#contact">ติดต่อ</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+
+      <div class="profile-circle">
+        👨‍💻
+      </div>
+
+      <h1>นาย <span>รัชชานนท์ โพธิผล</span></h1>
+
+      <h2>นักศึกษาด้านนวัตกรรมธุรกิจดิจิทัล</h2>
+
+      <p>
+        สวัสดีครับ ผมรัชชานนท์ โพธิผล
+        นักศึกษาคณะเทคโนโลยีสารสนเทศ
+        สาขานวัตกรรมธุรกิจดิจิทัล
+        มีความสนใจด้านเทคโนโลยี การพัฒนาตนเอง
+        และการออกกำลังกาย
+      </p>
+
+      <a href="#about" class="btn">
+        ทำความรู้จักกับผม
+      </a>
+
+    </div>
+  </section>
+
+
+  <!-- About -->
+  <section class="about" id="about">
+
+    <div class="section-title">
+      <h2>เกี่ยวกับฉัน</h2>
+      <p>About Me</p>
+    </div>
+
+    <div class="about-container">
+
+      <div class="card">
+        <h3>👋 แนะนำตัว</h3>
+        <p>
+          ผมชื่อ นายรัชชานนท์ โพธิผล
+          เป็นนักศึกษาที่มีความสนใจด้านเทคโนโลยี
+          และนวัตกรรมทางธุรกิจดิจิทัล
+          พร้อมเรียนรู้สิ่งใหม่ ๆ
+          และพัฒนาทักษะของตัวเองอยู่เสมอ
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>🎯 เป้าหมาย</h3>
+        <p>
+          ผมต้องการพัฒนาความรู้และประสบการณ์
+          ทางด้านเทคโนโลยีและธุรกิจดิจิทัล
+          เพื่อนำความรู้ไปประยุกต์ใช้
+          ในการทำงานและสร้างประโยชน์ในอนาคต
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Education -->
+  <section id="education">
+
+    <div class="section-title">
+      <h2>การศึกษา</h2>
+      <p>Education</p>
+    </div>
+
+    <div class="education">
+
+      <div class="education-card">
+
+        <div class="icon">🎓</div>
+
+        <h3>คณะเทคโนโลยีสารสนเทศ</h3>
+
+        <p>
+          สาขานวัตกรรมธุรกิจดิจิทัล
+        </p>
+
+        <p>
+          ศึกษาความรู้ด้านเทคโนโลยีสารสนเทศ
+          ธุรกิจดิจิทัล และนวัตกรรม
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Skills -->
+  <section class="skills" id="skills">
+
+    <div class="section-title">
+      <h2>ความสามารถและงานอดิเรก</h2>
+      <p>My Skills & Hobbies</p>
+    </div>
+
+    <div class="skills-grid">
+
+      <div class="skill-card">
+        <div class="skill-icon">🏃</div>
+        <h3>วิ่ง</h3>
+        <p>
+          ชอบวิ่งเพื่อออกกำลังกาย
+          และดูแลสุขภาพ
+        </p>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">🏊</div>
+        <h3>ว่ายน้ำ</h3>
+        <p>
+          ว่ายน้ำเพื่อฝึกความแข็งแรง
+          และความอดทน
+        </p>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">⚽</div>
+        <h3>เตะบอล</h3>
+        <p>
+          ชอบเล่นฟุตบอล
+          และทำกิจกรรมร่วมกับเพื่อน
+        </p>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">🏸</div>
+        <h3>ตีแบด</h3>
+        <p>
+          ชอบเล่นแบดมินตัน
+          เพื่อออกกำลังกายและผ่อนคลาย
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+
+    <div class="section-title">
+      <h2>ติดต่อ</h2>
+      <p>Contact Me</p>
+    </div>
+
+    <div class="contact-box">
+
+      <p>
+        หากต้องการรู้จักหรือพูดคุยกับผม
+        สามารถติดต่อได้ผ่านช่องทางต่าง ๆ
+      </p>
+
+      <a href="mailto:example@email.com" class="btn">
+        📧 ติดต่อผม
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- Footer -->
+  <footer>
+    © 2026 Ratchanon Photipol | Personal Portfolio
+  </footer>
+
+</body>
+</html>
